@@ -1,0 +1,92 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+@import url('./vite-promo.css');
+@import url('./header.css');
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.search-form {
+  width: 370px;
+  height: 40px;
+  gap: 8px;
+
+  padding-top: 36px;
+  display: flex;
+  justify-content: center;
+
+  margin: 0 auto;
+}
+
+.f-input {
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  padding-left: 16px;
+}
+.f-button {
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+}
+
+.gallery {
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.g-image {
+  display: block;
+  width: 360px;
+  height: 200px;
+}
+
+.gallery-item {
+  border: 1px solid black;
+}
+
+.info {
+  display: flex;
+  gap: 32px;
+  padding-left: 20px;
+  margin-top: 4px;
+}
+
+.fat-el {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+}
+
+.i-text {
+  text-align: center;
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: column;
+}
