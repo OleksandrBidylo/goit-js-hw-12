@@ -1,8 +1,9 @@
 let lightbox;
 
-export function renderGallery(images) {
+export function renderGallery(images, append = false) {
   const gallery = document.querySelector('.gallery');
-  gallery.innerHTML = images
+
+  const markup = images
     .map(
       image => `
     <a href="${image.largeImageURL}" class="gallery-item" data-caption="${image.tags}">
@@ -17,6 +18,12 @@ export function renderGallery(images) {
   `
     )
     .join('');
+
+  if (append) {
+    gallery.insertAdjacentHTML('beforeend', markup);
+  } else {
+    gallery.innerHTML = markup;
+  }
 
   if (!lightbox) {
     lightbox = new SimpleLightbox('.gallery a', {
