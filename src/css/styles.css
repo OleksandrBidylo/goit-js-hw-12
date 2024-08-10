@@ -94,3 +94,14 @@
 .hidden {
   display: none;
 }
+
+#load-more {
+  width: 150px;
+  display: none;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
