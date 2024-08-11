@@ -4,7 +4,7 @@ import { renderGallery, renderError } from './js/render-functions.js';
 const searchForm = document.querySelector('#search-form');
 const galleryContainer = document.querySelector('.gallery');
 const loadMoreButton = document.querySelector('#load-more');
-
+const loader = document.querySelector('#loader');
 let query = '';
 let page = 1;
 
@@ -21,6 +21,7 @@ searchForm.addEventListener('submit', async event => {
   galleryContainer.innerHTML = '';
   page = 1;
   loadMoreButton.style.display = 'none';
+  loader.style.display = 'block';
 
   try {
     const data = await fetchImages(query, page);
@@ -42,11 +43,14 @@ searchForm.addEventListener('submit', async event => {
   } catch (error) {
     renderError('Failed to fetch images. Please try again later.');
     loadMoreButton.style.display = 'none';
+  } finally {
+    loader.style.display = 'none';
   }
 });
 
 loadMoreButton.addEventListener('click', async () => {
   page += 1;
+  loader.style.display = 'block';
 
   try {
     const data = await fetchImages(query, page);
@@ -71,5 +75,7 @@ loadMoreButton.addEventListener('click', async () => {
     }
   } catch (error) {
     renderError('Failed to fetch images. Please try again later.');
+  } finally {
+    loader.style.display = 'none';
   }
 });
