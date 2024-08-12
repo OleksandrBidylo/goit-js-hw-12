@@ -55,15 +55,17 @@ loadMoreButton.addEventListener('click', async () => {
   try {
     const data = await fetchImages(query, page);
 
-    if (data.hits.length === 0 || page * 15 >= data.totalHits) {
+    if (data.hits.length > 0) {
+      renderGallery(data.hits, true);
+    }
+
+    if (data.hits.length < 15 || page * 15 >= data.totalHits) {
       loadMoreButton.style.display = 'none';
       iziToast.info({
         title: 'Info',
         message: "We're sorry, but you've reached the end of search results.",
       });
     } else {
-      renderGallery(data.hits, true);
-
       const { height: cardHeight } = document
         .querySelector('.gallery')
         .firstElementChild.getBoundingClientRect();
